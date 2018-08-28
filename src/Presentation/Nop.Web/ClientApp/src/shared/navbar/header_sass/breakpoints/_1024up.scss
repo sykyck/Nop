@@ -1,0 +1,81 @@
+.MenuContainer {
+  .imagesMenu {
+    .imgMenu {
+      width: 33.33%;
+      float: left;
+
+      .text {
+        margin-top: 35px;
+        margin-bottom: 30px;
+      }
+
+      .img {
+        height: 230px;
+      }
+    }
+    #imgMenu2 .img {
+      background-position-x: 69%;
+    }
+    .text {
+      margin-left: 40px;
+      text-align: left;
+    }
+  }
+}
+
+#menu_all_infos_l,
+#menu_all_infos_r {
+  @include grid-column(4, $custom-grid--info-menu-desktop);
+  padding-left: 40px;
+  box-sizing: border-box;
+}
+
+#menu_all_infos_r {
+  #menu_all_infos_r_inner {
+    max-width: 265px;
+    margin: 0 auto;
+  }
+}
+
+.newsletter {
+  #mc_embed_signup {
+    .inputNewsletter {
+      max-width: 265px;
+    }
+  }
+}
+
+#popup_account {
+  width: 100%;
+  max-width: 340px;
+
+  /* .popup_account_header {
+    .account_icon_in_popup{
+      left: 95.5%;
+    }
+  } */
+
+  .form_intro {
+    max-width: 150px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .form_actions {
+    width: 100%;
+
+    /* .rounded_btn {
+      &.fb_signin_btn, &.gg_signin_btn {
+        @include rounded-btn($bg-color2, $txt-color1);
+        margin: 0 0 20px;
+
+        .fa {
+          margin-right: 15px;
+        }
+        .btn_txt {
+          display: inline-block;
+        }
+      }
+    } */
+  }
+}

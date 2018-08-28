@@ -1,0 +1,138 @@
+/* ************************* */
+/* ***** Global styles ***** */
+/* ************************* */
+button:focus,
+textarea:focus,
+input:focus {
+  outline: none;
+}
+.form-control:focus {
+  border: 0px;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+a {
+  cursor: pointer;
+}
+body {
+  background-color: $body-bg;
+}
+
+ul,
+li {
+  list-style-image: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  @extend %restrict-img-width;
+}
+.clear {
+  clear: both;
+}
+
+/* Titres */
+.page_title {
+  @include page-title();
+  word-wrap: break-word;
+}
+.content_title2 {
+  @include content-title2();
+}
+
+/* ************************* */
+/* ***** Page Content ***** */
+/* ************************* */
+.simple_page_layout {
+  .page_title {
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: normal;
+    margin: 45px 0;
+  }
+  .content_title2 {
+    font-size: 16px;
+    text-align: center;
+    margin: 0 0 35px;
+    clear: both;
+  }
+
+  #page {
+    & > .content {
+      padding: 60px 0;
+    }
+  }
+
+  .container-simple-page {
+    max-width: 1280px;
+    margin: 0 auto;
+    color: $txt-color1;
+
+    .inner-container {
+      font-family: $Apercu-font-family;
+      font-size: 14px;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+
+      &.mobile_grid_1col {
+        margin-bottom: 50px;
+      }
+    }
+
+    p,
+    ul {
+      text-align: justify;
+      margin-bottom: 25px;
+    }
+
+    ul li {
+      &:before {
+        content: '\2022';
+        margin-right: 5px;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.background-page {
+  background-image: url('/assets/img/push-collection/8.jpg');
+  background-size: cover;
+
+  header,
+  .content {
+    background-color: #f9f4ef88;
+  }
+}
+
+.legal_layout {
+  background-image: url('/assets/img/footer-pages-bg.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  color: #090954;
+
+  h1,
+  h2 {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: 'Belvue', Helvetica, Arial, sans-serif;
+    width: 100%;
+    text-align: center;
+    line-height: 68px;
+  }
+
+  .content {
+    position: relative;
+    top: 30px;
+    margin-bottom: 50px;
+  }
+}

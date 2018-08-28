@@ -1,0 +1,70 @@
+<div class="container container-contact">
+  <div class="title">
+    contact
+  </div>
+
+  <div class="version-desktop" style="display: block !important;margin-top: 50px;">
+    <p ng-show="successMessage" class="success" style="color: #090954;">Your message has been sent</p>
+
+    <div class="cl-l">
+      <div class="input" ng-class="{'error' : nameFormContactError==true}">
+        <input type="text" placeholder="family name *" ng-model="nameFormContact" ng-class="{'error_field' : nameFormContactError==true}"
+        />
+        <div class="error_descr" ng-show="nameFormContactError==true">This field is required</div>
+      </div>
+    </div>
+    <div class="cl-r">
+      <div class="input" ng-class="{'error' : emailFormContactError==true}">
+        <input type="text" placeholder="email *" ng-model="emailFormContact" ng-class="{'error_field' : emailFormContactError==true}"
+        />
+        <div class="error_descr" ng-show="emailFormContactRequiredError==true">This field is required</div>
+        <div class="error_descr" ng-show="emailInvalidFormContactError==true">This field is not valid</div>
+      </div>
+    </div>
+
+    <div class="cl-l">
+      <div class="input" ng-class="{'error' : firstnameFormContactError==true}">
+        <input type="text" placeholder="first name *" ng-model="firstnameFormContact" ng-class="{'error_field' : firstnameFormContactError==true}"
+        />
+        <div class="error_descr" ng-show="firstnameFormContactError==true">This field is required</div>
+      </div>
+    </div>
+    <div class="cl-r">
+      <div class="input form_item_select">
+        <select class="contact-service form_select" name="Recipient" required="" aria-required="true" ng-model="required">
+          <option value="" disabled="" selected="">You would like to contact&nbsp;: *</option>
+          <option value="SERVICE_CLIENT">Customer service</option>
+          <option value="SERVICE_MARKETING">Marketing and communication service</option>
+          <option value="SERVICE_COMMERCIAL">Sales service</option>
+          <option value="RESOURCES_HUMAINES">Human ressources</option>
+          <option value="OTHERS">Others</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="cl-center" style="
+    padding-top: 40px;
+    clear: both;">
+      <div class="input textarea">
+        <p>subject : </p>
+        <textarea ng-model="subject"></textarea>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="button-continue rounded_btn" ng-click="submitContact()">submit</div>
+
+  <div class="content">
+    <p>We will gladly respond to all your queries and advice you on your purchases. Please feel free to write to us.</p>
+    <p>Green Tara (India)
+      <br /> No 217, Lower Ground Floor
+      <br /> Sector 30
+      <br /> Gurgaon – 122 001
+      <br /> Tel.: 0124-2382217
+      <br /> Email:
+      <a href="javascript:encode_mail('contact', 'y.jewelry.')">contact@y.jewelry</a>
+    </p>
+  </div>
+</div>

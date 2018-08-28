@@ -1,0 +1,19 @@
+/* ************************* */
+/* ***** Page Content ***** */
+/* ************************* */
+.simple_page_layout {
+	.container-simple-page {
+		.page_columns {
+			clear: both;
+		}
+		.inner-container {
+			&.tablet_grid_2col {
+				@include grid-column(6, $custom-grid--simple-page);
+
+				&:nth-child(odd) {
+					clear: left;
+				}
+			}
+		}
+	}
+}

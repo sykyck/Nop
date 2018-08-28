@@ -1,0 +1,16 @@
+/* ************************* */
+/* ***** Page Content ***** */
+/* ************************* */
+.simple_page_layout {
+	.container-simple-page {
+		.inner-container {
+			&.desktop_grid_2col {
+				@include grid-column(6, $custom-grid--simple-page);
+
+				&:nth-child(odd) {
+					clear: left;
+				}
+			}
+		}
+	}
+}

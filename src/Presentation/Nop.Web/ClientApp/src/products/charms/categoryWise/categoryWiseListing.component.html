@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row">
+    <app-linefilteranimation [carouselItems]="carouselItems" (loadProducts)='loadProducts()'></app-linefilteranimation>
+    <section class="products_of_category">
+      <app-filter [Filters]='filters' category='carouselItems' (filterSelected)='fetchFilteredProducts($event)'></app-filter>
+      <ul class="products_list">
+        <li class="product_item mobile_grid_6col tablet_grid_6col desk_grid_3col" *ngFor="let element of products" (click)="toProduit(element.id, element.title,$event)">
+          <app-listitem [item]='element'></app-listitem>
+        </li>
+      </ul>
+      <div class="clear"></div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+/* ***** Product Core ***** */
+article.product {
+  .product_center {
+    position: fixed;
+    left: 33%;
+
+    top: 32%;
+  }
+  .product_right {
+    margin-left: 36%;
+    position: relative;
+    top: 243px;
+    right: 10%;
+  }
+  .product_left {
+    position: relative;
+    top: 207px;
+    .product_title {
+      z-index: 99;
+      position: fixed;
+      width: 415px;
+      top: 237px;
+    }
+    .breadcrumb {
+      position: relative;
+      top: 19%;
+    }
+  }
+}
+
+/* ***** Sharing section ***** */
+.sharing_section {
+  position: fixed;
+  top: 460px;
+  left: 47%;
+}
+
+/* ***** Related Products & Products List & Search Results ***** */
+.related_products {
+  position: absolute;
+  top: 68%;
+}
+.related_products_list {
+  .mobile_grid_6col {
+    width: calc(17% - 30px);
+    float: left;
+    margin-left: 20px;
+  }
+}
+
+.related_products_to_top {
+  .related_products {
+    top: 44%;
+  }
+  .content_title2 {
+  }
+
+  .product_left {
+    .product_title {
+      top: -200px !important;
+    }
+    .breadcrumb {
+      top: 88px !important;
+    }
+  }
+}

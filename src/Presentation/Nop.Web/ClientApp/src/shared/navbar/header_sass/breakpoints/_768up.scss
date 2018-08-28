@@ -1,0 +1,146 @@
+/*Header*/
+header {
+  .search {
+    top: 22px;
+    left: 60px;
+  }
+  .logo {
+    top: 10px;
+  }
+}
+
+.MenuContainer {
+  .separator {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .imagesMenu {
+    .imgMenu {
+      .img {
+        height: 160px;
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}
+
+#menu_all_infos {
+  padding-bottom: 30px;
+  padding-top: 20px;
+}
+#menu_all_infos_l,
+#menu_all_infos_r {
+  @include grid-column(6, $custom-grid--info-menu);
+}
+#menu_all_infos_r {
+  padding-top: 0;
+}
+
+.infoMenu {
+  padding: 0;
+
+  .aboutY,
+  .newsletter {
+    /* width: 50%;
+    float: left; */
+    /* @include grid-column(6, $custom-grid--info-menu); */
+  }
+}
+
+.infoMenu,
+.infoY,
+.legalsY,
+.socialY,
+.newsletter {
+  .titre {
+    text-align: left;
+    /* padding-left: 40px; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .text {
+    text-align: left;
+    /* padding-left: 40px; */
+  }
+}
+
+.newsletter {
+  #mc_embed_signup {
+    .inputNewsletter {
+      text-align: left;
+      margin-left: 0;
+      margin-right: 0;
+      width: auto;
+      max-width: 170px;
+    }
+  }
+}
+
+.aboutY,
+.newsletter {
+  height: 160px;
+}
+.infoY,
+.legalsY {
+  float: left;
+  width: 50%;
+}
+.infoY,
+.legalsY,
+.socialY {
+  .titre {
+    margin-top: 0;
+  }
+}
+
+.credits {
+  clear: both;
+  text-align: left;
+  margin: 10px 0 0;
+}
+
+#popup_account {
+  width: 60%;
+  left: auto;
+  right: 0;
+  height: 100%;
+
+  .popup_account_header {
+    .account_icon_in_popup {
+      width: 16px;
+      height: 16px;
+      top: 22.23px;
+      /* left: 90%; */
+    }
+  }
+
+  .form_actions {
+    width: 52%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    .rounded_btn {
+      &.fb_signin_btn,
+      &.gg_signin_btn {
+        /* @include border-radius(50%);
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        display: inline-block;
+        text-align: center;
+        margin: 0 8px; */
+
+        .fa {
+          margin: 0;
+          font-size: 18px;
+        }
+        /* .btn_txt {
+          display: none;
+        } */
+      }
+    }
+  }
+}

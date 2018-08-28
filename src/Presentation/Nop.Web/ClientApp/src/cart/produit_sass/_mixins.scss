@@ -1,0 +1,56 @@
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) {
+    margin-right: flex-gutter($grid-columns, $gutter);
+  }
+  &:nth-child(#{$nth} + 1) {
+    clear: none;
+  }
+}
+
+/* *** Restriction de la largeur des images et des iframes (Ex : Vidéos YT) *** */
+%restrict-img-width {
+  max-width: 100%;
+  height: auto; /* Important pour surpasser la taille des images ajoutée par ckeditor */
+}
+
+/* *** Titles *** */
+@mixin page-title() {
+  color: $txt-color1;
+  font-family: $BelweSansLight-font-family;
+  font-size: 60px;
+  margin: 25px 0;
+}
+
+@mixin content-title2() {
+  color: $txt-color1;
+  text-transform: uppercase;
+  font-family: $Belvue-font-family;
+  font-size: 14px;
+  margin: 0 0 25px;
+}
+
+/* *** Placeholder Color *** */
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: $color;
+  }
+  &:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: $color;
+    opacity: 1;
+  }
+  &::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: $color;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $color;
+  }
+  &:placeholder-shown {
+    /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+    color: $color;
+  }
+}

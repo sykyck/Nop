@@ -1,0 +1,227 @@
+.push-collection {
+  .push-collection-1,
+  .push-collection-2,
+  .push-collection-3 {
+    .push-collection-media {
+      overflow: hidden;
+      height: 100vh;
+      width: 100%;
+      img,
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        max-width: none;
+      }
+    }
+  }
+  .push-collection-text-1,
+  .push-collection-text-2,
+  .push-collection-text-3 {
+    /*♥*/
+    position: absolute;
+    width: 100vw;
+    margin-bottom: 0px;
+    text-align: center;
+    transform: translateY(-7em);
+    .titre {
+      text-transform: uppercase;
+      font-size: 14px;
+      font-family: Belvue;
+      color: #090954;
+    }
+    .description {
+      font-size: 14px;
+      font-family: Apercu;
+      color: #090954;
+    }
+  }
+}
+
+body > img {
+  // Facebook tracking image
+  position: absolute;
+}
+
+@media screen and (max-width: 1024px) {
+  .homePage {
+    .text-hover-push-home-1 {
+      color: #090954;
+      font-size: 7em;
+      font-family: Belvue;
+    }
+    .chains-text-push-home-1,
+    .lookbook-text-push-home-1,
+    .charms-text-push-home-1 {
+      display: none;
+    }
+
+    .chains,
+    .lookbook,
+    .charms {
+      position: absolute;
+      left: 50vw;
+      transform: translateX(-50%);
+      z-index: 50;
+      text-align: center;
+      height: calc((100vh - #{$home-push-header-height}) / 3);
+      align-items: center;
+    }
+
+    $local-offset: $home-push-header-height;
+
+    .chains {
+      top: $local-offset;
+      // transform: translateX(-50%);
+    }
+
+    .lookbook {
+      top: calc(
+         (100vh - #{$home-push-header-height}) / 3 + #{$home-push-header-height}
+      );
+    }
+
+    .charms {
+      top: calc(
+         (200vh - #{$home-push-header-height*2}) / 3 + #{$home-push-header-height}
+      );
+    }
+
+    .block_left,
+    .block_center,
+    .block_right {
+      width: 100vw;
+      height: calc((100vh - #{$home-push-header-height}) / 3);
+      transform: translateY(#{$home-push-header-height});
+      float: left;
+      overflow: hidden;
+
+      & > img {
+        max-width: none;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.push-collection.active {
+  /*☻*/
+  background-color: #090954;
+  img,
+  video {
+    opacity: 0.9;
+  }
+  .push-collection-text-1,
+  .push-collection-text-2,
+  .push-collection-text-3 {
+    /*♥*/
+    .titre {
+      color: white;
+    }
+    .description {
+      color: white;
+    }
+  }
+  .switch-homepage-slide {
+    ul {
+      li {
+        border: 1px solid white;
+      }
+      li.active {
+        background: white;
+      }
+    }
+  }
+}
+
+.MenuContainer.active {
+  z-index: 501 !important;
+  position: absolute;
+}
+
+.switch-homepage-slide {
+  position: absolute;
+  width: 100vw;
+  transform: translateY(-4em);
+  ul {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    li {
+      display: inline-block;
+      list-style: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid #090954;
+      background: transparent;
+      margin-right: 10px;
+      font-size: 0px;
+      cursor: pointer;
+    }
+    li.active {
+      background: #090954;
+    }
+  }
+}
+
+.push_home_1 {
+  width: 100vw;
+  height: 100vh;
+}
+
+.charms,
+.chains,
+.lookbook {
+  display: flex;
+  margin: auto;
+  position: absolute;
+  & > div {
+    border-radius: 50%;
+    background: white;
+    color: #090954;
+    text-transform: uppercase;
+    font-family: BelweSansLight;
+    font-size: 14px;
+    vertical-align: middle;
+    text-align: center;
+
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+}
+.sliderMobileTablet {
+  .charms,
+  .chains,
+  .lookbook {
+    padding-top: 40px;
+  }
+  .charms:hover,
+  .chains:hover,
+  .lookbook:hover {
+    background-color: #090954;
+    color: white;
+  }
+  .chains {
+    top: 300px;
+    left: 35%;
+  }
+  .lookbook {
+    top: 738px;
+    width: 100vw;
+  }
+  .charms {
+    top: 1200px;
+    left: 35%;
+  }
+  ul {
+    li {
+      height: 450px;
+      width: 100%;
+      background-size: cover;
+    }
+  }
+}

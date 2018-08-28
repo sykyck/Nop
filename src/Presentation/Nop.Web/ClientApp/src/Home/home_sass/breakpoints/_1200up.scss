@@ -1,0 +1,18 @@
+@supports (clip-path: polygon(0 0 , 0 0, 0 0, 0 0)) {
+  .homePage .push_home_1 {
+    .chains {
+      left: 10%;
+    }
+    .lookbook-text-push-home-1 {
+      font-size: 6em;
+    }
+
+    // .block_right {
+    //   clip-path: polygon(100% 0, 45% 0, 25% 55%, 0 100%, 100% 100%);
+    //   width: 60vw;
+    // }
+    // .block_right_hover {
+    //   clip-path: polygon(100% 0, 10% 0, 25% 55%, 0 100%, 100% 100%);
+    // }
+  }
+}

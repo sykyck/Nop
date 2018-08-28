@@ -1,0 +1,169 @@
+<div id="popup_cart_list" class='active purchaseTunnel' style="width: 100%">
+  <div style="margin: 20px 0; padding: 25px 0;">
+    <div class="popup_cart_continue">
+      <a class="continue_btn rounded_btn" title="Continue" (click)="stepBagClick()">Continue</a>
+    </div>
+    <h1 class="cart_heading">Cart :</h1>
+    <div class="cart_list" *ngIf="cartList.length===0">
+      <div class="cart_product_item_c" style="width: 100%;">
+        <div class="cart_product_title" style="margin: auto; width: 110px;">
+          <span>Cart is Empty</span>
+        </div>
+      </div>
+    </div>
+    <div class="cart_list">
+      <ul class="products_list" style="margin: 0 35px;" *ngIf="cartList.length>0">
+        <li class="product_item mobile_grid_6col tablet_grid_6col desk_grid_3col" *ngFor="let item of cartList | slice:0:4" (click)="toProduit(item.id,item.title)"
+          style="cursor: pointer;">
+          <div class="product_img">
+            <img [src]="item.src" [alt]="item.alt" width="200" height="200" class="lazy" />
+          </div>
+          <div class="product_title">{{item.title}}</div>
+          <div class="product_price">₹ {{item.price}}</div>
+          <div class="cart_product_qty" style="display: inline-block;">
+            <span class="lbl">Quantity: &nbsp;</span>
+          </div>
+          <div class="selectNumber" style="display: inline-block;margin-top: 20px; padding-left: 5px;">
+            <div class="dropdownSelectedQuantity">{{item.qty}}
+              <span (click)="quantityDropdown=!quantityDropdown">^</span>
+            </div>
+            <div class="dropdownSelectedQuantityList" [ngClass]="{'active':quantityDropdown}">
+              <div (click)="changeQuantityPanier(item.id,1); quantityDropdown=false; item.qty = 1;">1</div>
+              <div (click)="changeQuantityPanier(item.id,2); quantityDropdown=false; item.qty = 2;">2</div>
+              <div (click)="changeQuantityPanier(item.id,3); quantityDropdown=false; item.qty = 3;">3</div>
+              <div (click)="changeQuantityPanier(item.id,4); quantityDropdown=false; item.qty = 4;">4</div>
+              <div (click)="changeQuantityPanier(item.id,5); quantityDropdown=false; item.qty = 5;">5</div>
+              <div (click)="changeQuantityPanier(item.id,6); quantityDropdown=false; item.qty = 6;">6</div>
+              <div (click)="changeQuantityPanier(item.id,7); quantityDropdown=false; item.qty = 7;">7</div>
+              <div (click)="changeQuantityPanier(item.id,8); quantityDropdown=false; item.qty = 8;">8</div>
+              <div (click)="changeQuantityPanier(item.id,9); quantityDropdown=false; item.qty = 9;">9</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <!-- <div class="cart_list_item" *ngFor="let item of cartList">
+        <div class="cart_product_item_l">
+          <div class="cart_product_img" *ngIf="item.src">
+            <img [src]="item.src" width="100" height="100" />
+          </div>
+        </div>
+
+        <div class="cart_product_item_c">
+          <div class="cart_product_title">
+            <span>{{item.title}}</span>
+          </div>
+          <div class="cart_product_qty" style="display: inline-block;">
+            <span class="lbl">Quantity: &nbsp;</span>
+          </div>
+          <div class="selectNumber" style="display: inline-block;margin-top: 20px; padding-left: 5px;">
+            <div class="dropdownSelectedQuantity" (click)="quantityDropdown=!quantityDropdown">{{item.qty}}</div>
+            <div class="dropdownSelectedQuantityList" ngClass="{'active':quantityDropdown}">
+              <div (click)="changeQuantityPanier(item.id,item.qty,1); quantityDropdown=false; item.qty = 1;">1</div>
+              <div (click)="changeQuantityPanier(item.id,item.qty,2); quantityDropdown=false; item.qty = 2;">2</div>
+              <div (click)="changeQuantityPanier(item.id,item.qty,3); quantityDropdown=false; item.qty = 3;">3</div>
+              <div (click)="changeQuantityPanier(item.id,item.qty,4); quantityDropdown=false; item.qty = 4;">4</div>
+              <div (click)="changeQuantityPanier(item.id,item.qty,5); quantityDropdown=false; item.qty = 5;">5</div>
+              <div (click)="changeQuantityPanier(item.id,item.qty,6); quantityDropdown=false; item.qty = 6;">6</div>
+              <div (click)="changeQuantityPanier(item.id,item.qty,7); quantityDropdown=false; item.qty = 7;">7</div>
+              <div (click)="changeQuantityPanier(item.id,item.qty,8); quantityDropdown=false; item.qty = 8;">8</div>
+              <div (click)="changeQuantityPanier(item.id,item.qty,9); quantityDropdown=false; item.qty = 9;">9</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart_product_item_r">
+          <div class="cart_product_price">₹{{item.price}}</div>
+          <div class="cart_product_del" *ngIf="StepBag==0" (click)="deleteProduct(item.id, item.qty)" style="margin-top: 31px;">
+            <a class="btn_del_to_cart" title="">
+              <span class="fa fa-times"></span>
+            </a>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div> -->
+
+      <!-- <a id="more_btn" href="#" title="More">+</a> -->
+
+      <div id="send_cart_by_mail" action="">
+        <div class="form_item form_item_email">
+          <input class="form_email" name="form_item_creation_mail" type="email" placeholder="Send my creation by mail" />
+        </div>
+
+        <div class="form_actions">
+          <button class="form_submit" (click)="sendPanier()" style="height: 100%;">ok</button>
+        </div>
+        <div class="clear"></div>
+        <div *ngIf="mailIncorrectPanier">Mail incorrect</div>
+        <div *ngIf="fieldRequiredPanier">Field required</div>
+        <div *ngIf="EmailEnvoyePanier">Email sent</div>
+      </div>
+
+      <div id="send_cart_by_mail" action="">
+        <div class="form_item form_item_email" *ngIf="showCodePromo">
+          <input class="form_email" ng-model="promotionalCode" type="text" placeholder="Promotional code" />
+        </div>
+
+        <div class="form_actions" *ngIf="showCodePromo">
+          <button class="form_submit" (click)="promoCheck()">ok</button>
+        </div>
+        <div class="form_messages" *ngIf="showCodePromo">
+          <p class="error_message" *ngIf="requiredCodePromo">{{fieldsRequiredMissing}}</p>
+          <p class="error_message" *ngIf="invalidCodeMsg">Invalid promotional code</p>
+        </div>
+        <div class="clear"></div>
+        <div *ngIf="mailIncorrectPanier">Mail incorrect</div>
+        <div *ngIf="fieldRequiredPanier">Field required</div>
+        <div *ngIf="EmailEnvoyePanier">Email sent</div>
+      </div>
+
+
+      <div id="popup_cart_footer">
+        <div id="popup_cart_footer_l" class="popup_cart_footer_col" *ngIf="DiscountTTC!='0' && DiscountTTC!=0 && DiscountTTC!='null' && DiscountTTC!=null"
+          style="line-height: 20px;">
+          <span class="total_lbl">Discount</span>
+        </div>
+        <div id="popup_cart_footer_r" class="popup_cart_footer_col" *ngIf="DiscountTTC!='0' && DiscountTTC!=0 && DiscountTTC!='null' && DiscountTTC!=null"
+          style="line-height: 20px;">
+          <span class="total_price">₹{{DiscountTTC}}</span>
+        </div>
+
+        <div id="popup_cart_footer_l" class="popup_cart_footer_col" *ngIf="cartListTotalPrice!='0.00'" style="line-height: 20px;">
+          <span class="total_lbl">Total</span>
+        </div>
+        <div id="popup_cart_footer_r" class="popup_cart_footer_col" *ngIf="cartListTotalPrice!='0.00'" style="line-height: 20px;">
+          <span class="total_price">₹{{TOTALNormal}}</span>
+        </div>
+        <div id="popup_cart_footer_l" class="popup_cart_footer_col" *ngIf="cartListTotalPrice!='0.00'" style="line-height: 20px;">
+          <span class="total_lbl">GST (3%)</span>
+        </div>
+        <div id="popup_cart_footer_r" class="popup_cart_footer_col" *ngIf="cartListTotalPrice!='0.00'" style="line-height: 20px;">
+          <span class="total_price">₹{{SGST}}</span>
+        </div>
+
+        <div id="popup_cart_footer_l" class="popup_cart_footer_col" *ngIf="cartListTotalPrice!='0.00'" style="line-height: 20px;">
+          <span class="total_lbl">Shipping/Processing fee</span>
+        </div>
+        <div id="popup_cart_footer_r" class="popup_cart_footer_col" *ngIf="cartListTotalPrice!='0.00'" style="line-height: 20px;">
+          <span class="total_price">₹{{priceDeliveryChoix}}</span>
+        </div>
+
+        <p *ngIf="cartListTotalPrice!='0.00'" style="text-transform:none;clear:both;">
+          <br> We offer Free Shipping on all orders above ₹1000 (before tax). The Shipping Fee on Order Value below ₹1000 (before
+          tax) is ₹150. On all COD orders, a Processing Fee of ₹50 will be charged.
+        </p>
+
+        <div id="popup_cart_footer_l" class="popup_cart_footer_col" *ngIf="cartListTotalPrice!='0.00'">
+          <span class="total_lbl">Total (Tax included)</span>
+        </div>
+        <div id="popup_cart_footer_r" class="popup_cart_footer_col" *ngIf="cartListTotalPrice!='0.00'">
+          <span class="total_price" id="totalttcprice">₹{{cartListTotalPrice}}</span>
+        </div>
+
+        <div class="popup_cart_continue">
+          <a class="continue_btn rounded_btn" title="Continue" (click)="stepBagClick()">Continue</a>
+        </div>
+      </div>
+    </div>
+  </div>

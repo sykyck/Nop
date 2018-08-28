@@ -1,0 +1,54 @@
+<article class="product">
+  <section class="product_left tablet_grid_4col desk_grid_4col">
+    <div class="breadcrumb_container">
+      <ul class="breadcrumb">
+        <li class="breadcrumb_item">
+          <a style="cursor: pointer;" (click)="gotocharms();" title="Charms">Charms</a>
+        </li>
+        <li class="breadcrumb_item">
+          <a title="Blue Lagoon">{{collection}}</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="product_title page_title">
+      <div [innerHTML]='name'></div>
+    </h1>
+  </section>
+
+  <section class="product_center tablet_grid_4col desk_grid_4col">
+    <div class="product_slider_container" id="product_slider_container">
+      <ul class="product_slider featured" *ngIf='slides != null' style='display: inline;'>
+        <li class="product_slider_item" *ngFor="let element of Vslide; index as i" @ngIfAnimation>
+          <div>
+            <img [src]="element.src" [alt]="element.alt" width="500" height="500" />
+          </div>
+        </li>
+      </ul>
+      <div class="indicators product_slider_pager_items" *ngIf='slides != null'>
+        <span class='default product_slider_pager_item' *ngFor="let y of slides; index as x" [ngClass]="{'active':visibleSlide===x}"
+          (click)="changeSlide(x, y)"></span>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="product_right tablet_grid_4col desk_grid_4col">
+
+    <div class="product_description">
+      <div [innerHTML]='description'></div>
+      <div *ngIf="displayProdPriceLarge" class="product_price product_price_largesize">{{prodPrice}}</div>
+      <div *ngIf="displayProdCartBtnLarge" class="product_cart_actions">
+        <a class="add_cart_btn" title="Add to cart" (click)="addToCart()">Add to cart</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="clear"></div>
+
+  <div class="product_actions">
+    <div *ngIf="displayProdPriceSmall" class="product_price product_price_smallsize">{{prodPrice}}</div>
+    <div *ngIf="displayProdCartBtnSmall" class="product_cart_actions" [ngClass]="{'product_cart_actions_to_top':scrollBottom==true}">
+      <a class="add_cart_btn" title="Add to cart" (click)="addToCart()">Add to cart</a>
+    </div>
+  </div>
+</article>

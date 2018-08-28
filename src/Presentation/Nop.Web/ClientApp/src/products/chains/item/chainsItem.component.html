@@ -1,0 +1,43 @@
+<div class="container-produit">
+  <div class="container-fluid">
+
+    <app-singleproduct [data]='product'>
+    </app-singleproduct>
+
+    <section class="related_products container">
+      <h2 class="content_title2">You may also like...</h2>
+
+      <ul class="related_products_list">
+        <li class="related_product_item mobile_grid_6col" *ngFor="let item of relatedProducts | slice:0:4" (click)="toProduit(item.id,item.title)"
+          style="cursor: pointer;">
+          <app-listitem [item]='item'></app-listitem>
+        </li>
+
+      </ul>
+      <div class="clear"></div>
+    </section>
+
+    <section class="sharing_section">
+      <ul class="sharing_links">
+        <li>
+          <a class="fb_icon" href="http://www.facebook.com/sharer/sharer.php?u={{url}}&amp;display=popup" target="_blank" rel="noopener"
+            onclick="open(this.href, 'social_share', 'height=400,width=600');return false">
+            <img src="./../../assets/img/Facebook.svg" />
+          </a>
+        </li>
+        <li>
+          <a class="twitter_icon" href="https://twitter.com/intent/tweet?text={{url}}" target="_blank" rel="noopener" onclick="open(this.href, 'social_share', 'height=400,width=600');return false">
+            <img src="./../../assets/img/Twitter.svg" />
+          </a>
+        </li>
+        <li>
+          <a class="pinterest_icon" href="http://pinterest.com/pin/create/button/?url={{url}}&amp;description=" target="_blank" rel="noopener"
+            onclick="open(this.href, 'social_share', 'height=400,width=600');return false">
+            <img src="./../../assets/img/Pinterest.svg" />
+          </a>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+</div>

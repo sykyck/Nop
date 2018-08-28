@@ -1,0 +1,19 @@
+@font-face {
+  font-family: BelweSansLight;
+  src: url(/assets/fonts/BelweSans-Light.otf);
+}
+
+@font-face {
+  font-family: Apercu;
+  src: url(/assets/fonts/Apercu.otf);
+}
+
+@font-face {
+  font-family: Belvue;
+  src: url(/assets/fonts/BelweSans-Light.otf);
+}
+
+/* *** Font Families *** */
+$BelweSansLight-font-family: 'BelweSansLight', Helvetica, Arial, sans-serif;
+$Apercu-font-family: 'Apercu', Helvetica, Arial, sans-serif;
+$Belvue-font-family: 'Belvue', Helvetica, Arial, sans-serif;

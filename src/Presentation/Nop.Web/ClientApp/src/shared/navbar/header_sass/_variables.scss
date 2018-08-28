@@ -1,0 +1,12 @@
+/* *** Surcharge neat bourbon *** */
+$max-width: 10000px !default;
+
+/* *** Custom neat grid for menu *** */
+$custom-grid--info-menu: (
+	columns: 12,
+  gutter: 40px,
+);
+$custom-grid--info-menu-desktop: (
+	columns: 12,
+  gutter: 0,
+);

@@ -1,0 +1,24 @@
+footer {
+  .element-footer {
+    width: 24.6%;
+    vertical-align: top;
+    display: inline-block;
+    .text {
+      width: 260px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .switch-footer-slide {
+    clear: both;
+    float: none;
+  }
+  .cash-on-delivery {
+    padding-top: 0px;
+  }
+  .secure-payment,
+  .fast-delivery,
+  .a-question {
+    padding-top: 0px;
+  }
+}

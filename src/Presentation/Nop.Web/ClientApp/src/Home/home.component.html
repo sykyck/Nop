@@ -1,0 +1,130 @@
+<div class="homePage" *ngIf="categories">
+  <div class="push_home_1">
+    <div class="block_left">
+      <img [src]="categories[0].image.src" [ngClass]="{'activeLeft' : pushsActive1 ==true}" *ngIf="getExtension(Filename)!='mp4'"
+      />
+      <div class="text-hover-push-home-1 chains-text-push-home-1" [ngClass]="{'chains-text-push-home-1-anim': pushsActive1 ==true}">
+        <div [innerHTML]="categories[0].hover"></div>
+      </div>
+    </div>
+    <div (mouseenter)="pushToRight()" (mouseleave)="pushFromRight()" (click)="goToChains()" class="charms">
+      <div>{{categories[0].name}}</div>
+    </div>
+    <div (mouseenter)="pushToLeft()" (mouseleave)="pushFromLeft()" class="chains" (click)="goToCharms()">
+      <div>{{categories[1].name}}</div>
+    </div>
+    <div (mouseenter)="pushToCenter()" (mouseleave)="pushFromCenter()" class="lookbook" (click)="goToLookbook()" [ngClass]="{'lookbook_center_to_right':pushsActive3==true, 'lookbook_center_to_left':pushsActive1==true, 'lookbook_center_to':pushsActive2==true}">
+      <div>{{categories[2].name}}</div>
+    </div>
+    <div class="block_center " [ngClass]="{'block_center_to_right':pushsActive3==true, 'block_center_to_left':pushsActive1==true, 'block_center_to':pushsActive2==true}">
+      <img [src]="categories[1].image.src" *ngIf="getExtension(Filename)!='mp4'" />
+      <div class="text-hover-push-home-1 lookbook-text-push-home-1" [ngClass]="{'lookbook-text-push-home-1-anim': pushsActive2 ==true}">
+        <div [innerHTML]="categories[1].hover"></div>
+      </div>
+    </div>
+    <div class="block_right " [ngClass]="{'block_right_hover':pushsActive3==true}">
+      <img [src]="categories[2].image.src" *ngIf="getExtension(Filename)!='mp4'" />
+      <div class="text-hover-push-home-1 charms-text-push-home-1" [ngClass]="{'charms-text-push-home-1-anim': pushsActive3 ==true}">
+        <div [innerHTML]="categories[2].hover"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="!sliderVersionTabletMobile" class="push-collection md-only" [ngClass]="{'active' : pushCollectionActive==1}"
+    (mouseenter)="pushCollectionActive=1" (mouseleave)="pushCollectionActive=0">
+
+    <div class="push-collection-1" [hidden]="!(showAllHome == true || showElementHome==1)" [ngClass]="{'activePush' : pushCollectionActive1==1}"
+      (mouseenter)="pushCollectionActive1=1" (mouseleave)="pushCollectionActive1=0" (click)="goToPush1(collections[0].name, collections[0].id)">
+      <div class="push-collection-media push-collection-media-left">
+        <img [src]="collections[0].image.src" *ngIf="getExtension(Filename)!='mp4'" draggable="false" />
+      </div>
+      <div class="push-collection-text-1" (click)="goToPush()">
+        <div class="titre">{{collections[0].name}}</div>
+        <div class="description">{{collections[0].description}}</div>
+      </div>
+    </div>
+    <div class="push-collection-2" [hidden]="!(showAllHome == true || showElementHome==2)" [ngClass]="{'activePush' : pushCollectionActive2==1}"
+      (mouseenter)="pushCollectionActive2=1" (mouseleave)="pushCollectionActive2=0" (click)="goToPush(collections[1].name, collections[1].id)">
+      <div class="push-collection-media push-collection-media-center">
+        <img [src]="collections[1].image.src" *ngIf="getExtension(Filename)!='mp4'" />
+        <div class="text-hover-push-collection-2-home-1 summer-text-push-collection-home-1" [ngClass]="{'summer-text-push-collection-home-1-anim': pushCollectionActive2 == 1}">
+          <div></div>
+        </div>
+      </div>
+      <div class="push-collection-text-2">
+        <div class="titre">{{collections[1].name}}</div>
+        <div class="description">{{collections[1].description}}</div>
+      </div>
+    </div>
+    <div class="push-collection-3" [hidden]="!(showAllHome == true || showElementHome==0)" [ngClass]="{'activePush' : pushCollectionActive3==1}"
+      (mouseenter)="pushCollectionActive3=1" (mouseleave)="pushCollectionActive3=0" (click)="goToPush(collections[2].name, collections[2].id)">
+      <div class="push-collection-media push-collection-media-right">
+        <img [src]="collections[2].image.src" *ngIf="getExtension(Filename)!='mp4'" />
+      </div>
+      <div class="push-collection-text-3">
+        <div class="titre">{{collections[2].name}}</div>
+        <div class="description">{{collections[2].description}}</div>
+      </div>
+    </div>
+
+    <div class="switch-homepage-slide" [hidden]="!showULHome">
+      <ul>
+        <li [ngClass]="{'active':showElementHome==1}" (click)="showElementHome=1">1</li>
+        <li [ngClass]="{'active':showElementHome==2}" (click)="showElementHome=2">2</li>
+        <li [ngClass]="{'active':showElementHome==0}" (click)="showElementHome=0">3</li>
+      </ul>
+    </div>
+
+  </div>
+
+
+
+
+  <div *ngIf="sliderVersionTabletMobile" class="push-collection" [ngClass]="{'active' : pushCollectionActive==1}" (mouseenter)="pushCollectionActive=1"
+    (mouseleave)="pushCollectionActive=0">
+
+    <div class="push-collection-1" [hidden]="!(showAllHome == true || showElementHome==1)" [ngClass]="{'activePush' : showElementHome==1}"
+      (swipeleft)="swipeLeftCarousel()" (swiperight)="swipeRightCarousel()" (click)="goToPush(collections[0].name, collections[0].id)">
+      <div class="push-collection-media push-collection-media-left">
+        <img [src]="collections[0].image.src" draggable="false" />
+      </div>
+      <div class="push-collection-text-1">
+        <div class="titre">{{collections[0].name}}</div>
+        <div class="description">{{collections[0].description}}</div>
+      </div>
+    </div>
+    <div class="push-collection-2" [hidden]="!(showAllHome == true || showElementHome==2)" ngClass="{'activePush' : showElementHome==2}"
+      (swipeleft)="swipeLeftCarousel()" (swiperight)="swipeRightCarousel()" (click)="goToPush(collections[1].name, collections[1].id)">
+      <div class="push-collection-media push-collection-media-center">
+        <img [src]="collections[1].image.src" draggable="false" />
+        <div class="text-hover-push-collection-2-home-1 summer-text-push-collection-home-1" ngClass="{'summer-text-push-collection-home-1-anim': pushCollectionActive2 == 1}">
+          <div></div>
+        </div>
+      </div>
+      <div class="push-collection-text-2">
+        <div class="titre">{{collections[1].name}}</div>
+        <div class="description">{{collections[1].description}}</div>
+      </div>
+    </div>
+    <div class="push-collection-3" [hidden]="!(showAllHome == true || showElementHome==0)" [ngClass]="{'activePush' : showElementHome==0}"
+      (swipeleft)="swipeLeftCarousel()" (swiperight)="swipeRightCarousel()" (click)="goToPush(collections[2].name, collections[2].id)">
+      <div class="push-collection-media push-collection-media-right">
+        <img [src]="collections[2].image.src" draggable="false" />
+      </div>
+      <div class="push-collection-text-3">
+        <div class="titre">{{collections[2].name}}</div>
+        <div class="description">{{collections[2].description}}</div>
+      </div>
+    </div>
+
+    <div class="switch-homepage-slide" [hidden]="!showULHome">
+      <ul>
+        <li [ngClass]="{'active':showElementHome==1}" (click)="showElementHome=1">1</li>
+        <li [ngClass]="{'active':showElementHome==2}" (click)="showElementHome=2">2</li>
+        <li [ngClass]="{'active':showElementHome==0}" (click)="showElementHome=0">3</li>
+      </ul>
+    </div>
+
+  </div>
+</div>

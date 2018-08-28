@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: BelweSansLight;
+  src: url(assets/fonts/BelweSans-Light.otf);
+}
+@font-face {
+  font-family: Apercu;
+  src: url(assets/fonts/Apercu.otf);
+}
+@font-face {
+  font-family: Belvue;
+  src: url(assets/fonts/BelweSans-Light.otf);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: #090954;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+}
+
+.picBackground {
+  background-image: url(assets/img/footer-pages-bg.jpg);
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.colorBackground {
+  background-color: #f9f4ef;
+}
+
+a {
+  background-color: transparent;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: 500;
+}

@@ -1,0 +1,18 @@
+/* *** Surcharge neat bourbon *** */
+$max-width: 10000px !default;
+
+/* *** Custom neat grid for cart popup *** */
+$custom-grid--cat-popup-item: (
+	columns: 12,
+  gutter: 35px,
+);
+
+$custom-grid--cat-popup-suggest-col: (
+	columns: 12,
+  gutter: 10px,
+);
+
+$custom-grid--cat-popup-footer: (
+	columns: 12,
+  gutter: 0px,
+);

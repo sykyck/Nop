@@ -1,0 +1,274 @@
+<header id="header">
+  <div class="menu" [ngClass]="{'close':isOpen}" (click)="isOpen=!isOpen;isOpenSearch=false"></div>
+  <div class="search" [ngClass]="{'openSearch':isOpenSearch}" (click)="openSearch();">
+    <div id="stringSearch" style="display: none;"></div>
+    <!-- <angucomplete id="site_search_field" placeholder="Search" minlength="1" pause="400" class="form_text" selectedobject="searchObj"
+      url="{{pathSearch}}" datafield="data" titlefield="Name" inputclass="form-control form-control-small" (click)="isOpenSearch=!isOpenSearch"
+    /> -->
+  </div>
+  <a [routerLink]="['home']">
+    <div class="logo" (click)="isOpen=false"></div>
+  </a>
+  <div class="cart" [ngClass]="{'close':isOpenPanier}" (click)="isOpenPanier=true" [hidden]="!StepBag">
+    <div class="cart_icon"></div>
+    <p class="cart_num_items" [hidden]="!(cartItems!=0 && cartItems!=undefined)">{{cartItems}}</p>
+  </div>
+
+  <div class="account" [ngClass]="{'close':isOpenAccount}" (click)="openAccountPopup()" [hidden]="!StepBag"></div>
+
+  <div class="MenuContainer" [ngClass]="{'active':isOpen}">
+    <div class="imagesMenu">
+      <div class="imgMenu" (click)="goToCharms()">
+        <div class="img" style="background-image: url('https://medias.y.jewelry/stories/homepage-y-visuel01-min.jpg');" *ngIf="!sliderVersionTabletMobile && getExtension('https://medias.y.jewelry/stories/homepage-y-visuel01-min.jpg')!='mp4'"></div>
+        <div class="video" *ngIf="!sliderVersionTabletMobile && getExtension(Filename)=='mp4'">
+          <video width="100%" height="100%" controls="controls">
+            <source [src]="'https://medias.y.jewelry/stories/homepage-y-visuel01-min.jpg'" type="video/mp4" />
+          </video>
+        </div>
+        <div class="text">{{charms}}</div>
+      </div>
+      <div class="imgMenu" (click)="goToChains()">
+        <div class="img" style="background-image: url('https://medias.y.jewelry/stories/homepage-y-visuel03-min.jpg');" *ngIf="!sliderVersionTabletMobile && getExtension('https://medias.y.jewelry/stories/homepage-y-visuel03-min.jpg')!='mp4'"></div>
+        <div class="video" *ngIf="!sliderVersionTabletMobile && getExtension('https://medias.y.jewelry/stories/homepage-y-visuel03-min.jpg')=='mp4'">
+          <video width="100%" height="100%" controls="controls">
+            <source [src]="'https://medias.y.jewelry/stories/homepage-y-visuel03-min.jpg'" type="video/mp4" />
+          </video>
+        </div>
+        <div class="text">{{chains}}</div>
+      </div>
+      <div class="imgMenu" (click)="goToLookbook()">
+        <div class="img" style="background-image: url('https://medias.y.jewelry/stories/homepage-y-visuel02-min.jpg');" *ngIf="!sliderVersionTabletMobile && getExtension('https://medias.y.jewelry/stories/homepage-y-visuel02-min.jpg')!='mp4'"></div>
+        <div class="video" *ngIf="!sliderVersionTabletMobile && getExtension(Filename)=='mp4'">
+          <video width="100%" height="100%" controls="controls">
+            <source [src]="'https://medias.y.jewelry/stories/homepage-y-visuel02-min.jpg'" type="video/mp4" />
+          </video>
+        </div>
+        <div class="text">{{lookbook}}</div>
+      </div>
+      <div class="separator clear">
+      </div>
+    </div>
+
+    <nav id="menu_all_infos">
+      <div id="menu_all_infos_l" class="infoMenu">
+        <div class="aboutY" (click)="aboutClick(); isOpen=false" style="cursor: pointer;">
+          <div class="titre">About Y</div>
+          <div class="text">
+            Y is a Swiss brand with one mission; getting women to make jewelry look good - not the reverse.
+            <u>Learn more.</u>
+          </div>
+        </div>
+
+        <div class="infoY">
+          <div class="titre">info</div>
+          <div class="text">
+            <ul>
+              <li>
+                <a [routerLink]="['info','care']" (click)="isOpen=false">Care for you charms</a>
+              </li>
+              <li>
+                <a [routerLink]="['info', 'sizeguide']" (click)="isOpen=false">Size Guide</a>
+              </li>
+              <li>
+                <a [routerLink]="['info','productInformation']" (click)="isOpen=false">Product Information</a>
+              </li>
+              <li>
+                <a [routerLink]="['info','deliveryReturns']" (click)="isOpen=false">Return, Refund &amp; Cancellation</a>
+              </li>
+              <li>
+                <a [routerLink]="['info','warningAboutForgery']" (click)="isOpen=false">Warning About Forgery</a>
+              </li>
+              <li>
+                <a [routerLink]="['info','productionCondition']" (click)="isOpen=false">Production Condition</a>
+              </li>
+              <li>
+                <a [routerLink]="['info','contactus']" (click)="isOpen=false">Contact Us</a>
+              </li>
+              <li>
+                <a [routerLink]="['info','faq']" (click)="isOpen=false">FAQ</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="legalsY">
+          <div class="titre">legals</div>
+          <div class="text">
+            <ul>
+              <li>
+                <a [routerLink]="['legals','terms']" (click)="isOpen=false">Terms &amp; conditions</a>
+              </li>
+              <li>
+                <a [routerLink]="['legals','service']" (click)="isOpen=false">Service Warranty</a>
+              </li>
+              <li>
+                <a [routerLink]="['legals','privacy']" (click)="isOpen=false">Privacy Policy</a>
+              </li>
+              <li>
+                <a [routerLink]="['legals','shippingAndDelivery']" (click)="isOpen=false">Shipping and Delivery Policy</a>
+              </li>
+              <li>
+                <a [routerLink]="['legals','pricesAndPayment']" (click)="isOpen=false">Prices and Payment</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="clear"></div>
+      </div>
+      <div id="menu_all_infos_r">
+        <div id="menu_all_infos_r_inner">
+
+          <div class="newsletter">
+            <div class="titre"> monthly Newsletter</div>
+            <div id="mc_embed_signup">
+              <form action="//jewelry.us16.list-manage.com/subscribe/post?u=15d53cca64e2199799f8d813b&amp;id=8af88a9cd4" method="post"
+                id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" rel="noopener"
+                novalidate style="padding: 0px;">
+                <div id="mc_embed_signup_scroll" class="inputNewsletter">
+
+                  <div class="mc-field-group form_item form_item_email">
+                    <input type="email" value="" name="EMAIL" class="required email form_email" id="mce-EMAIL" placeholder="Enter your email..."
+                    />
+
+                    <div id="mce-responses" class="clear" style="width: 422px;">
+                      <div class="response" id="mce-error-response" style="display:none"></div>
+                      <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>
+                  </div>
+                  <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                    <input type="text" name="b_15d53cca64e2199799f8d813b_8af88a9cd4" tabindex="-1" value="">
+                  </div>
+
+                  <div class="form_actions">
+                    <input type="submit" value="ok" name="subscribe" id="mc-embedded-subscribe" class="button form_submit">
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </form>
+            </div>
+
+            <script type='text/javascript' defer async src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+          </div>
+
+          <div class="socialY">
+            <div class="titre">follow us!</div>
+            <div class="text">
+              <ul>
+                <li>
+                  <a class="fb icon" href="https://www.facebook.com/ThisisYjewelry-1735514419791954/" target="_blank" rel="noopener">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px"
+                      height="30px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+                      <g>
+                        <g>
+                          <g>
+                            <path d="M20.25,18h-2v7h-3v-7h-2v-3h2v-2c0-2.709,1.318-4,4-4h2v3l-1.691-0.021
+                      c-0.809,0-1.309,0.188-1.309,1.021v2l2.666,0.027L20.25,18z M20.916,16.994" />
+                          </g>
+                        </g>
+                        <path d="M17.625,2.125c-8.284,0-15,6.715-15,15c0,8.283,6.716,15,15,15s15-6.717,15-15
+                    C32.625,8.84,25.909,2.125,17.625,2.125z M17.625,31.125c-7.731,0-14-6.27-14-14c0-7.732,6.269-14,14-14s14,6.268,14,14
+                    C31.625,24.855,25.356,31.125,17.625,31.125z" />
+                      </g>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a class="instagram icon" href="https://www.instagram.com/thisisyjewelry/" target="_blank" rel="noopener">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px"
+                      height="30px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+                      <g>
+                        <path style="fill:#090954;" d="M21.5,13.5c-0.264,0-0.521,0.105-0.706,0.291C20.606,13.977,20.5,14.235,20.5,14.5
+                      c0,0.263,0.106,0.52,0.294,0.707c0.186,0.185,0.442,0.293,0.706,0.293s0.521-0.108,0.706-0.293C22.394,15.02,22.5,14.763,22.5,14.5
+                      c0-0.265-0.106-0.523-0.294-0.709C22.022,13.605,21.764,13.5,21.5,13.5z" />
+                        <path style="fill:#090954;" d="M17.5,2.5c-8.284,0-15,6.715-15,15c0,8.283,6.716,15,15,15s15-6.717,15-15
+                      C32.5,9.215,25.784,2.5,17.5,2.5z M17.5,31.5c-7.731,0-14-6.27-14-14c0-7.732,6.269-14,14-14s14,6.268,14,14
+                      C31.5,25.23,25.231,31.5,17.5,31.5z" />
+                        <path class="not-fill has-stroke" style="fill:none;stroke:#090954;stroke-miterlimit:10;" d="M24.59,20.841c0,2.203-1.787,3.989-3.99,3.989h-6.021
+                      c-2.203,0-3.989-1.786-3.989-3.989V14.82c0-2.203,1.786-3.99,3.989-3.99H20.6c2.203,0,3.99,1.787,3.99,3.99V20.841z"
+                        />
+                        <circle class="not-fill has-stroke" style="fill:none;stroke:#090954;stroke-miterlimit:10;" cx="17.5" cy="18" r="3.5" />
+                      </g>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a class="twitter icon" href="https://twitter.com/thisisyjewelry" target="_blank" rel="noopener">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px"
+                      height="30px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+                      <g>
+                        <g>
+                          <g>
+                            <g>
+                              <path d="M26.713,14.145c-0.59,0.26-1.222,0.438-1.886,0.517c0.679-0.405,1.197-1.05,1.442-1.815
+                          c-0.635,0.376-1.338,0.649-2.086,0.797c-0.599-0.639-1.451-1.037-2.396-1.037c-1.813,0-3.283,1.471-3.283,3.283
+                          c0,0.256,0.028,0.508,0.085,0.748c-2.729-0.138-5.147-1.445-6.767-3.431c-0.283,0.483-0.444,1.048-0.444,1.649
+                          c0,1.14,0.58,2.145,1.461,2.732c-0.539-0.018-1.045-0.166-1.488-0.412v0.041c0,1.59,1.133,2.918,2.634,3.22
+                          c-0.274,0.073-0.565,0.114-0.865,0.114c-0.212,0-0.417-0.021-0.618-0.061c0.418,1.305,1.631,2.254,3.066,2.28
+                          c-1.123,0.88-2.539,1.403-4.077,1.403c-0.265,0-0.526-0.016-0.783-0.045c1.453,0.934,3.179,1.477,5.032,1.477
+                          c6.039,0,9.341-5.002,9.341-9.34L25.07,15.84C25.715,15.381,26.273,14.803,26.713,14.145z" />
+                            </g>
+                          </g>
+                        </g>
+                        <path d="M17.5,2.5c-8.284,0-15,6.715-15,15c0,8.283,6.716,15,15,15s15-6.717,15-15
+                    C32.5,9.215,25.784,2.5,17.5,2.5z M17.5,31.5c-7.731,0-14-6.27-14-14c0-7.732,6.269-14,14-14s14,6.268,14,14
+                    C31.5,25.23,25.231,31.5,17.5,31.5z" />
+                      </g>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a class="pinterest icon" href="https://www.pinterest.com/thisisyjewelry" target="_blank" rel="noopener">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px"
+                      height="30px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+                      <g>
+                        <g>
+                          <g>
+                            <path d="M18.289,22.105c-0.974-0.076-1.383-0.559-2.146-1.023c-0.42,2.203-0.933,4.314-2.453,5.418
+                        c-0.47-3.33,0.688-5.83,1.227-8.484c-0.916-1.543,0.11-4.65,2.044-3.883c2.38,0.941-2.06,5.738,0.921,6.336
+                        c3.112,0.627,4.383-5.398,2.452-7.359c-2.788-2.83-8.116-0.064-7.462,3.986c0.16,0.99,1.184,1.291,0.409,2.658
+                        c-1.785-0.396-2.317-1.803-2.249-3.68c0.111-3.072,2.761-5.223,5.418-5.521c3.361-0.375,6.517,1.236,6.951,4.396
+                        C23.891,18.518,21.884,22.383,18.289,22.105L18.289,22.105z" />
+                          </g>
+                        </g>
+                        <path d="M17.5,2.5c-8.284,0-15,6.715-15,15c0,8.283,6.716,15,15,15s15-6.717,15-15
+                    C32.5,9.215,25.784,2.5,17.5,2.5z M17.5,31.5c-7.731,0-14-6.27-14-14c0-7.732,6.269-14,14-14s14,6.268,14,14
+                    C31.5,25.23,25.231,31.5,17.5,31.5z" />
+                      </g>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a class="google icon" href="https://www.roposo.com/profile/yjewelry/af274109-1ee0-4ffc-b500-c0dfd0cd165f?query=USER_@yjewelry&num=0&entityID=af274109-1ee0-4ffc-b500-c0dfd0cd165f"
+                    target="_blank" rel="noopener">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px"
+                      height="30px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+                      <g>
+                        <path d="M17.25,2.375c-8.284,0-15,6.715-15,15c0,8.283,6.716,15,15,15s15-6.717,15-15
+                      C32.25,9.09,25.534,2.375,17.25,2.375z M17.25,31.375c-7.731,0-14-6.27-14-14c0-7.732,6.269-14,14-14s14,6.268,14,14
+                      C31.25,25.105,24.981,31.375,17.25,31.375z" />
+                        <path d="M17.904,11.589V7.314c5,0.496,8.975,4.472,9.471,9.471h-4.274
+                      C22.654,14.128,20.562,12.036,17.904,11.589z M16.846,11.589V7.314c-4.999,0.496-8.975,4.472-9.471,9.471h4.274
+                      C12.096,14.128,14.188,12.036,16.846,11.589z M11.649,17.844H7.375c0.496,4.998,4.472,8.975,9.471,9.471V23.04
+                      C14.188,22.592,12.096,20.5,11.649,17.844z M17.904,23.04v4.274c5-0.496,8.975-4.472,9.471-9.471h-4.274
+                      C22.654,20.5,20.562,22.592,17.904,23.04z" />
+                      </g>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="credits">
+            Website by
+            <a href="https://www.bonjour.agency/" target="_blank" rel="noopener">Bonjour Paris</a>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </nav>
+
+  </div>
+
+</header>

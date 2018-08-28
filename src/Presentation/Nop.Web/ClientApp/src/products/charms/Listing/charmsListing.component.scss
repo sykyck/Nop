@@ -1,0 +1,20 @@
+.item-carousel {
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -o-user-select: none !important;
+  user-select: none !important;
+}
+
+.disabled a.dropdown-item {
+  color: gray !important;
+  pointer-events: none;
+}
+
+.dropdown li a {
+  padding: 10px 0 0;
+}
+
+.croixshow {
+  background-image: none !important;
+}

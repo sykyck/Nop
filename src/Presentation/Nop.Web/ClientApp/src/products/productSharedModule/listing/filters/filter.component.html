@@ -1,0 +1,36 @@
+<form id="products_filters" action="" [hidden]="!filtreShow" style= 'background: transparent;'>
+  <div (click)="hideFilters()" class="filter_slide_toggle" *ngIf="sliderVersionTabletMobile">
+    <a>+ Filters</a>
+  </div>
+  <div class="form_selected_" *ngFor="let filter of Filters; index as i">
+      <div *ngIf='i===0 && category' [ngClass]="{'croixshow': category.Selected, 'disabled': dropdownDisabled, 'active': category.menuActive}" class="wrap-dd-select" tabindex="0" (clickOutside)='category.menuActive = false' style="outline: none;">
+          <span class="selected" *ngIf='category.Selected' (click)='unSelectCategory()'>{{category.SelectedName + ' x'}}</span>
+          <span class="selected" *ngIf='!category.Selected' (click)='selectCategory()'>Theme</span>
+          <ul class="dropdown" *ngIf='category.menuActive'>
+              <li *ngFor="let item of category" [ngClass]="{'disabled': item.disabled, 'divider': (item.divider && !item['Name']), 'divider-label': (item.divider && item['Name'])}" (click)="item.disabled ? '' : selectCatItem(item);">
+                  <a class="dropdown-item" *ngIf="!item.divider">
+                      {{item['Name']}}
+                    </a>
+                    <span *ngIf="item.divider">
+                      {{item['Name']}}
+                    </span>
+              </li>
+          </ul>
+        </div>
+    <div *ngIf='i>0' [ngClass]="{'croixshow': filterSelected[i], 'disabled': dropdownDisabled, 'active': filter.menuActive}" class="wrap-dd-select" tabindex="0" (clickOutside)='filter.menuActive ? closeAllFilters(i): "";' style="outline: none;">
+      <span class="selected" *ngIf='filterSelected[i]' (click)='unSelectFilter(i)'>{{filterSelected[i] + ' x'}}</span>
+      <span class="selected" *ngIf='!filterSelected[i]' (click)='selectFilter(i)'>{{filter['selected']['Name']}}</span>
+      <ul class="dropdown" *ngIf='filter.menuActive'>
+          <li *ngFor="let item of filter" [ngClass]="{'disabled': item.disabled, 'divider': (item.divider && !item['Name']), 'divider-label': (item.divider && item['Name'])}"
+            (click)="item.disabled ? '' : selectItem(item, i);">
+            <a class="dropdown-item" *ngIf="!item.divider">
+              {{item['Name']}}
+            </a>
+            <span *ngIf="item.divider">
+              {{item['Name']}}
+            </span>
+          </li>
+      </ul>
+    </div>
+  </div>
+</form>

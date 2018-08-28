@@ -1,0 +1,23 @@
+<div class="carousel-category">
+  <div class="carousel-category-inner" [style]="'left :' + leftImage + '%;'">
+    <div class="item-carousel" *ngFor='let item of carouselItems' (swipeleft)="swipeLeft(item.id,item.num)" (swiperight)="swipeRight(item.id,item.num)">
+      <img [src]="item.img" class="imgCarousel" draggable="false" [alt]="item.txt" />
+    </div>
+  </div>
+
+  <div class="carousel-category-indicators">
+    <ul>
+      <li class="item-indicator" [ngClass]="{'active' : activeMenu === item.id}" *ngFor=' let item of carouselItems' [id]="item.id + 'Indicator'">
+        <a (click)="setActive(item.id,$event,item.catId)">
+          <div class="round" [id]="item.id"></div>
+        </a>
+        <div class="line"></div>
+      </li>
+    </ul>
+  </div>
+  <div class="carousel-category-indicators-active" id="carousel-category-indicators-active">
+    <div>
+      <p [ngClass]="{'active' : activeMenu == item.num}" *ngFor='let item of carouselItems' [id]="item.id + 'IndicatorText'">{{item.txt}}</p>
+    </div>
+  </div>
+</div>
